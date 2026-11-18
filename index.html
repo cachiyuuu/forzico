@@ -1,0 +1,994 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe8f2">
+<title>A Little Place for You ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --pink: #f6c8dc;
+    --light: #fff0f6;
+    --white: #fffafd;
+    --rose: #bd7598;
+    --text: #79576b;
+    --muted: #a98799;
+    --shadow: 0 18px 50px rgba(183,112,148,.13);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: linear-gradient(
+        180deg,
+        #fff4f9,
+        #ffeaf3,
+        #fff7fb
+    );
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* BACKGROUND */
+
+.sky {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.cloud {
+    position: absolute;
+    width: 180px;
+    height: 55px;
+    background: rgba(255,255,255,.6);
+    border-radius: 50px;
+    animation: drift 30s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 80px;
+    height: 80px;
+    top: -35px;
+    left: 25px;
+}
+
+.cloud::after {
+    width: 100px;
+    height: 100px;
+    top: -45px;
+    right: 20px;
+}
+
+.cloud.one { top: 15%; left: -200px; }
+.cloud.two { top: 50%; left: -250px; animation-delay: -12s; }
+.cloud.three { top: 75%; left: -220px; animation-delay: -20s; }
+
+@keyframes drift {
+    to { left: 110%; }
+}
+
+.sparkle {
+    position: fixed;
+    color: #e6a9c7;
+    animation: twinkle 3s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes twinkle {
+    to {
+        opacity: .2;
+        transform: scale(.7) rotate(25deg);
+    }
+}
+
+/* NAVBAR */
+
+.wrap {
+    width: min(920px, 92%);
+    margin: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 23px 0;
+}
+
+.brand {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--rose);
+    font-size: 19px;
+}
+
+/* BUTTON */
+
+.btn {
+    border: none;
+    border-radius: 50px;
+    padding: 14px 25px;
+    background: #d995b5;
+    color: white;
+    box-shadow: 0 8px 20px rgba(197,126,160,.22);
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    background: #c77fa2;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 85vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.hero-card {
+    max-width: 700px;
+    padding: clamp(30px, 6vw, 60px);
+    border: 1px solid white;
+    border-radius: 35px;
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
+}
+
+.hero-icon {
+    font-size: 55px;
+    display: block;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    50% { transform: translateY(-12px); }
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 10px;
+    color: #b88aa1;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 8vw, 76px);
+    line-height: 1.1;
+    font-weight: 500;
+    margin: 18px 0;
+    color: #b96f94;
+}
+
+.hero h1 em {
+    color: #d696b4;
+}
+
+.hero p {
+    max-width: 480px;
+    margin: auto auto 27px;
+    color: #98788a;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.note {
+    font-size: 11px;
+    color: #bd9bab;
+    margin-top: 22px;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 80px 0;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-head h2 {
+    font: 500 clamp(30px, 5vw, 46px) 'Playfair Display', serif;
+    color: #b96f94;
+    margin: 12px 0;
+}
+
+.section-head p {
+    color: #9d8190;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* MAIN MESSAGE */
+
+.message-card {
+    max-width: 700px;
+    margin: auto;
+    padding: clamp(25px, 5vw, 45px);
+    background: rgba(255,255,255,.75);
+    border: 1px solid white;
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.message-card p {
+    font: italic 20px/1.9 'Playfair Display', serif;
+    color: #987087;
+}
+
+.message-card small {
+    display: block;
+    margin-top: 22px;
+    color: #c18ba7;
+}
+
+/* LETTERS */
+
+.letters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.letter {
+    padding: 25px 18px;
+    background: rgba(255,255,255,.75);
+    border: 1px solid white;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 10px 28px rgba(183,112,148,.09);
+    transition: .3s;
+}
+
+.letter:hover {
+    transform: translateY(-7px);
+}
+
+.letter-icon {
+    font-size: 36px;
+    margin-bottom: 13px;
+}
+
+.letter h3 {
+    font: 500 20px 'Playfair Display', serif;
+    color: #b87899;
+    margin-bottom: 10px;
+}
+
+.letter p {
+    font-size: 11px;
+    color: #a88b9a;
+    margin-bottom: 17px;
+    line-height: 1.6;
+}
+
+.letter button {
+    background: #fff7fb;
+    border: 1px solid #f0d2e0;
+    color: #b87899;
+    border-radius: 30px;
+    padding: 10px 17px;
+    font-size: 11px;
+}
+
+/* HUG SECTION */
+
+.hugbox {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+    padding: 40px 25px;
+    border-radius: 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.85),
+        rgba(255,231,242,.8)
+    );
+    border: 1px solid white;
+    box-shadow: var(--shadow);
+}
+
+.hug-icon {
+    font-size: 58px;
+    margin-bottom: 15px;
+}
+
+.hugbox blockquote {
+    font: italic 22px/1.7 'Playfair Display', serif;
+    color: #a56e89;
+    margin: 20px auto;
+    min-height: 75px;
+}
+
+/* ENDING */
+
+.closing {
+    text-align: center;
+    padding: 90px 0 100px;
+}
+
+.closing h2 {
+    font: 500 clamp(35px, 6vw, 55px) 'Playfair Display', serif;
+    color: #b96f94;
+    margin: 18px 0;
+}
+
+.closing p {
+    max-width: 520px;
+    margin: auto;
+    color: #98788a;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer {
+    text-align: center;
+    padding: 25px;
+    color: #bd9bab;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(104,69,88,.3);
+    backdrop-filter: blur(7px);
+    display: none;
+    place-items: center;
+    padding: 20px;
+    z-index: 20;
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-content {
+    width: min(490px, 100%);
+    background: #fff9fc;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 35px 28px;
+    text-align: center;
+    box-shadow: 0 25px 80px rgba(105,65,88,.2);
+    animation: pop .3s ease;
+}
+
+.modal-content h3 {
+    font: 500 29px 'Playfair Display', serif;
+    color: #b96f94;
+    margin: 15px 0;
+}
+
+.modal-content p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #927386;
+}
+
+.close {
+    margin-top: 22px;
+    border: none;
+    background: #f7dfeb;
+    color: #a66f8b;
+    border-radius: 30px;
+    padding: 12px 22px;
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* FLOATING HEARTS */
+
+.float-heart {
+    position: fixed;
+    bottom: -30px;
+    color: #e6a8c4;
+    pointer-events: none;
+    animation: rise 8s linear forwards;
+    z-index: 5;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 650px) {
+    .letters {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .hero {
+        min-height: 78vh;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="sky">
+    <div class="cloud one"></div>
+    <div class="cloud two"></div>
+    <div class="cloud three"></div>
+</div>
+
+<span class="sparkle" style="top:13%;left:9%">✧</span>
+<span class="sparkle" style="top:27%;right:12%">✦</span>
+<span class="sparkle" style="top:66%;left:7%">✧</span>
+<span class="sparkle" style="top:78%;right:9%">✦</span>
+
+<!-- NAVBAR -->
+
+<header class="wrap navbar">
+    <div class="brand">
+        a little place for you ♡
+    </div>
+    <div>☁︎ &nbsp; ✧ &nbsp; ♡</div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero wrap" id="home">
+
+    <div class="hero-card">
+
+        <span class="hero-icon">☁️</span>
+
+        <div class="eyebrow">
+            a soft little reminder
+        </div>
+
+        <h1>
+            A Little Place<br>
+            <em>for You</em>
+        </h1>
+
+        <p>
+            A tiny corner of the world, made to remind
+            you to slow down, take a breath, and remember
+            that you don't have to figure everything out alone.
+        </p>
+
+        <button class="btn"
+        onclick="scrollToSection('message')">
+            Enter my little world ♡
+        </button>
+
+        <div class="note">
+            made with a little love, just for you ✧
+        </div>
+
+    </div>
+</section>
+
+<!-- MESSAGE -->
+
+<section class="section wrap" id="message">
+
+    <div class="section-head">
+
+        <div class="eyebrow">
+            please remember this
+        </div>
+
+        <h2>You're not alone.</h2>
+
+        <p>
+            For the days when everything feels a little too much.
+        </p>
+
+    </div>
+
+    <div class="message-card">
+
+        <p>
+            “Hey, kamu. You don't have to be okay all the time.
+
+            Kamu boleh capek, boleh istirahat, dan boleh cerita
+            kalau ada sesuatu yang terasa berat.
+
+            You don't have to carry everything by yourself.
+
+            I'm here, and I care about you.
+
+            Pelan-pelan aja, ya. One day at a time. ♡”
+        </p>
+
+        <small>— a little reminder for you</small>
+
+    </div>
+
+</section>
+
+<!-- LETTERS -->
+
+<section class="section wrap" id="letters">
+
+    <div class="section-head">
+
+        <div class="eyebrow">
+            open whenever you need
+        </div>
+
+        <h2>Little letters for you</h2>
+
+        <p>
+            Pilih satu surat kecil.
+            Maybe there's a sentence you need to hear today.
+        </p>
+
+    </div>
+
+    <div class="letters">
+
+        <article class="letter">
+            <div class="letter-icon">🌧️</div>
+            <h3>When you're sad</h3>
+            <p>For a cloudy day in your heart.</p>
+            <button onclick="openLetter(0)">Open letter ♡</button>
+        </article>
+
+        <article class="letter">
+            <div class="letter-icon">🌙</div>
+            <h3>When you're tired</h3>
+            <p>A gentle reminder to take a rest.</p>
+            <button onclick="openLetter(1)">Open letter ♡</button>
+        </article>
+
+        <article class="letter">
+            <div class="letter-icon">☁️</div>
+            <h3>When you feel alone</h3>
+            <p>Something I hope you'll remember.</p>
+            <button onclick="openLetter(2)">Open letter ♡</button>
+        </article>
+
+        <article class="letter">
+            <div class="letter-icon">🪻</div>
+            <h3>When you doubt yourself</h3>
+            <p>For the moments you forget your worth.</p>
+            <button onclick="openLetter(3)">Open letter ♡</button>
+        </article>
+
+        <article class="letter">
+            <div class="letter-icon">🌷</div>
+            <h3>When you need a smile</h3>
+            <p>A tiny bit of sunshine for you.</p>
+            <button onclick="openLetter(4)">Open letter ♡</button>
+        </article>
+
+        <article class="letter">
+            <div class="letter-icon">💌</div>
+            <h3>Just because</h3>
+            <p>No special reason. Just a note for you.</p>
+            <button onclick="openLetter(5)">Open letter ♡</button>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- HUG -->
+
+<section class="section wrap" id="hug">
+
+    <div class="section-head">
+
+        <div class="eyebrow">
+            a little warmth
+        </div>
+
+        <h2>Need a gentle reminder?</h2>
+
+        <p>
+            Tap the button. Let a little kind thought
+            find its way to you.
+        </p>
+
+    </div>
+
+    <div class="hugbox">
+
+        <div class="hug-icon">🧸</div>
+
+        <blockquote id="randomMessage">
+            You deserve softness, patience, and good things.
+            Even on ordinary days.
+        </blockquote>
+
+        <button class="btn" onclick="newMessage()">
+            Another little reminder ✨
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ENDING -->
+
+<section class="closing wrap">
+
+    <div style="font-size:45px">♡</div>
+
+    <div class="eyebrow">
+        before you go
+    </div>
+
+    <h2>I'll be here.</h2>
+
+    <p>
+        And if the day gets heavy again,
+        you can come back to this little place.
+
+        Take your time, breathe slowly,
+        and be gentle with yourself.
+
+        You matter more than you know.
+        I'm always wishing good things for you.
+
+        <br><br>
+
+        <em>You're not alone, okay?</em>
+
+    </p>
+
+    <div style="margin-top:30px;color:#d397b4;font-size:23px">
+        ☁︎ &nbsp; ♡ &nbsp; ✧ &nbsp; ♡ &nbsp; ☁︎
+    </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+    A LITTLE PLACE FOR YOU · MADE WITH CARE ♡
+</footer>
+
+<!-- LETTER MODAL -->
+
+<div class="modal" id="letterModal"
+onclick="if(event.target === this) closeLetter()">
+
+    <div class="modal-content">
+
+        <div id="modalEmoji" style="font-size:40px">
+            💌
+        </div>
+
+        <h3 id="modalTitle">A little letter</h3>
+
+        <p id="modalText"></p>
+
+        <button class="close" onclick="closeLetter()">
+            Keep this with you ♡
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+// SCROLL
+
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+
+// LETTER CONTENT
+
+const letters = [
+
+{
+    emoji: "🌧️",
+    title: "When you're sad",
+    text: `
+    Hey, kamu.
+
+    I'm sorry today feels difficult.
+    You don't need to force a smile or pretend
+    that everything is fine.
+
+    It's okay to have days like this.
+
+    Take a little break, drink some water,
+    and let yourself feel what you feel.
+
+    I hope tomorrow is a little kinder to you.
+
+    I'm rooting for you, always. ♡
+    `
+},
+
+{
+    emoji: "🌙",
+    title: "When you're tired",
+    text: `
+    You have done enough for today, okay?
+
+    You don't need to finish everything right now.
+
+    Rest is not something you have to earn.
+
+    Put the heavy things down for a moment,
+    breathe, and give yourself the same kindness
+    you give to other people.
+
+    One small step at a time. ♡
+    `
+},
+
+{
+    emoji: "☁️",
+    title: "When you feel alone",
+    text: `
+    If the world feels quiet and you start thinking
+    that you have to face everything alone,
+    please remember this:
+
+    You matter, and someone cares about how you're doing.
+
+    You can reach out.
+    You can talk.
+
+    You don't have to find all the answers by yourself.
+
+    I'm here to listen. ♡
+    `
+},
+
+{
+    emoji: "🪻",
+    title: "When you doubt yourself",
+    text: `
+    Please don't be too hard on yourself.
+
+    You are still learning, still growing,
+    and still figuring things out.
+
+    And that's okay.
+
+    You don't have to compare your journey
+    with anyone else's.
+
+    I hope you can see even a little of the good
+    that other people see in you.
+
+    I'm proud of your effort. ♡
+    `
+},
+
+{
+    emoji: "🌷",
+    title: "When you need a smile",
+    text: `
+    Here's your tiny reminder:
+
+    Unclench your shoulders.
+    Take a deep breath.
+    Notice one small nice thing around you.
+
+    Maybe the sky, a favourite song,
+    or a silly little moment.
+
+    You deserve little moments of happiness, too.
+
+    Sending a pocket-sized sunshine your way. ☀️
+    `
+},
+
+{
+    emoji: "💌",
+    title: "Just because",
+    text: `
+    No big reason for this letter.
+
+    I just wanted you to know that I'm glad you're here.
+
+    Thank you for being you,
+    with all your little quirks
+    and all the things that make you who you are.
+
+    I hope life gives you more reasons to smile.
+
+    Please take care of yourself, okay? ♡
+    `
+}
+
+];
+
+
+// OPEN LETTER
+
+function openLetter(index) {
+
+    const letter = letters[index];
+
+    document.getElementById("modalEmoji").textContent =
+        letter.emoji;
+
+    document.getElementById("modalTitle").textContent =
+        letter.title;
+
+    document.getElementById("modalText").textContent =
+        letter.text;
+
+    document.getElementById("letterModal")
+        .classList.add("show");
+
+}
+
+
+// CLOSE LETTER
+
+function closeLetter() {
+
+    document.getElementById("letterModal")
+        .classList.remove("show");
+
+}
+
+
+// RANDOM REMINDERS
+
+const reminders = [
+
+    "You deserve softness, patience, and good things. Even on ordinary days.",
+
+    "Kamu nggak harus menyelesaikan semuanya hari ini. Rest a little, okay?",
+
+    "Your feelings matter. You matter. And you are allowed to take your time.",
+
+    "Pelan-pelan bukan berarti tertinggal. You're doing your best.",
+
+    "I hope you remember to be kind to yourself today.",
+
+    "Even a small step is still a step. I'm cheering for you. ♡",
+
+    "You don't have to be perfect to be loved and appreciated.",
+
+    "Semoga hari ini ada satu hal kecil yang bikin kamu tersenyum.",
+
+    "It's okay to pause. You can always try again tomorrow.",
+
+    "Whatever happens, please don't forget to take care of yourself."
+];
+
+
+function newMessage() {
+
+    const element =
+        document.getElementById("randomMessage");
+
+    let randomIndex;
+
+    do {
+        randomIndex = Math.floor(
+            Math.random() * reminders.length
+        );
+    } while (
+        String(randomIndex) === element.dataset.last
+    );
+
+    element.dataset.last = randomIndex;
+
+    element.style.opacity = 0;
+
+    setTimeout(() => {
+
+        element.textContent = reminders[randomIndex];
+
+        element.style.opacity = 1;
+
+    }, 200);
+
+}
+
+
+// FLOATING HEARTS
+
+setInterval(() => {
+
+    const heart = document.createElement("span");
+
+    heart.className = "float-heart";
+
+    heart.textContent = ["♡", "♥", "✧"][
+        Math.floor(Math.random() * 3)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 15) + "px";
+
+    heart.style.animationDuration =
+        (6 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+
+}, 1800);
+
+
+// ESCAPE KEY
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+        closeLetter();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
